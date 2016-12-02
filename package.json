@@ -1,0 +1,27 @@
+{
+  "name": "rat",
+  "version": "1.0.0",
+  "description": "a ratty app",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "mns",
+  "license": "ISC",
+  "repository": {},
+  "engines": {
+    "node": "6.x"
+  },
+  "dependencies": {
+    "body-parser": "1.15.2",
+    "cfenv": "1.0.3",
+    "client-sessions": "0.7.0",
+    "config": "1.24.0",
+    "csurf": "1.9.0",
+    "express": "4.13.x",
+    "helmet": "3.1.0",
+    "request": "2.79.0",
+    "winston": "2.3.0"
+  }
+}
