@@ -1,0 +1,20 @@
+# OS config view
+.DS_Store
+Desktop.ini
+
+# Thumbnails
+._*
+Thumbs.db
+
+# External disks
+.Spotlight-V100
+.Trashes
+
+# Dev files
+*.[oa]
+*~
+node_modules
+.eslintrc.json
+
+# Logs
+*.log
