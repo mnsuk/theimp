@@ -1,3 +1,7 @@
+# Passwords and stuff
+config/dev.json
+config/production.json
+
 # OS config view
 .DS_Store
 Desktop.ini
