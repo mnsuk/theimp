@@ -1,0 +1,18 @@
+{
+  "version" : "1.1.0",
+  "LOG_LEVEL" : "debug",
+  "VCAP_SERVICES": {
+    "cloudantNoSQLDB" : [ {
+      "name" : "xxxx",
+      "label" : "cloudantNoSQLDB",
+      "plan" : "Shared",
+      "credentials" : {
+        "username" : "uuuu-bluemix",
+        "password" : "pppp",
+        "host" : "uuuu-bluemix.cloudant.com",
+        "port" : 443,
+        "url" : "https://uuuu-bluemix:pppp@uuuu-bluemix.cloudant.com"
+      }
+    } ]
+  }
+}
