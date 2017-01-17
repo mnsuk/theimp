@@ -1,0 +1,44 @@
+//- privacy.jade
+extends ./layout.jade
+
+block vars
+  - var title = 'Privacy'
+block main-content
+  div.container.theme-showcase(role="main")
+    div.page-header
+      include ./includes/messages.jade
+    div.row
+      div.col-sm-8.col-sm-offset-2.text-center
+        h3.text-center Privacy Policy
+        p.text-left.
+          This is an experimental application used for testing software
+          development techniques. We respect your privacy, please read the information
+          below to get a clear understanding of how we collect, use, protect and
+          process information.
+        dl.text-left
+          dt When do we collect information
+          dd We collect information when you use messenger or this website to communicate with us.
+
+          dt How do we use your information
+          dd To personalise your experience.
+          dd We use any personal information only for providing and improving the service.
+
+          dt How do we protect your information
+          dd We only provide articles and information.
+          dd We never ask for credit card information.
+          dd We never ask for address information.
+
+          dt Cookies
+          dd We do not use cookies for tracking purposes
+
+          dt Third party disclosure and links
+          dd We do not sell, trade, or otherwise transfer to outside parties any data.
+          dd We do not include or offer third party products or services.
+
+          dt Policy Updates
+          dd This policy is effective as of 10-10-2016. Changes will be notified via this site.
+
+    footer.page-footer
+      div.small-print
+        div.container
+          p Copyright &copy; 2015

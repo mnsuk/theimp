@@ -5,6 +5,9 @@ const session = require('client-sessions');
 const csrf = require('csurf');
 const cfenv = require('cfenv');
 const config = require('config');
+const passport = require('passport');
+const flash = require('connect-flash');
+const version = config.get('version');
 
 module.exports = function(app) {
   // set appEnv as global (including vcap_services) from cf or local as appropriate
@@ -50,6 +53,23 @@ module.exports = function(app) {
   app.use(express.static(__dirname + '/../public'));
   app.set('view engine', 'jade');
   app.locals.pretty = true;
+  app.use(passport.initialize());
+  app.use(passport.session());
+
+  // global variables
+  app.use(flash());
+  app.use(function(req, res, next) {
+    res.locals.success_msg = req.flash('success_msg');
+    res.locals.info_msg = req.flash('info_msg');
+    res.locals.warn_msg = req.flash('warn_msg');
+    res.locals.error_msg = req.flash('error_msg');
+    res.locals.error = req.flash('error'); // flash messages from passport
+    res.locals.user = req.user || null;
+    res.locals.version = version;
+    next();
+  });
+
+  // Routing
   app.use(require('../controllers'));
   app.get('*', function(req, res, next) {
     const err = new Error();

@@ -1,6 +1,12 @@
 {
-  "version" : "1.1.0",
+  "version" : "1.2.0",
   "LOG_LEVEL" : "debug",
+  "authenticationDB": "auth-dev",
+  "home_page": "/debug",
+  "mailer" : {
+    "url": "smtps://xxx%40gmail.com:xxxx@smtp.gmail.com",
+    "admin": "anon"@anon.com"
+  },
   "VCAP_SERVICES": {
     "cloudantNoSQLDB" : [ {
       "name" : "xxxx",

@@ -1,0 +1,33 @@
+//- register.jade
+extends ./layout.jade
+
+block vars
+  - var title = 'Register'
+block main-content
+  script.
+    document.row.className += ' fade-out'
+  div.container.theme-showcase(role="main")
+    div.page-header
+      include ./includes/messages.jade
+    div.row
+      form.form-horizontal(method='POST')
+        div.col-sm-4.col-sm-offset-4
+          h4.text-center Create an account
+          div.form-group
+            input.form-control(type="hidden", name="_csrf", value=csrfToken)
+            label(for=firstName) First Name
+            input.form-control(type="text", name="firstName", placeholder='First Name', required=true)
+          div.form-group
+            label(for=lastName) Last Name
+            input.form-control(type="text", name="lastName", placeholder='Last Name', required=true)
+          div.form-group
+            label(for=email) Email
+            input.form-control(type="email", name="email", placeholder='Email', required=true)
+          div.form-group
+            label(for=password) Password (twice please)
+            input.form-control(type="password", name="password1", placeholder='Password' required=true)
+          div.form-group
+            input.form-control(type="password", name="password2", placeholder='Repeat password' required=true)
+          div.form-group.text-center
+            button.btn.btn-primary.btn-lg(type="submit") Register
+          p.text-center Already registered? #[a(href='/login') Log in »]

@@ -1,0 +1,23 @@
+//- prevalidate.jade
+extends ./layout.jade
+
+block vars
+  - var title = 'Prevalidate'
+block main-content
+  div.container.theme-showcase(role="main")
+    div.page-header
+      include ./includes/messages.jade
+    div.row
+      div.col-sm-8.col-sm-offset-2.text-center
+        h3 Welcome to The Imp
+          p.text-justify.
+            Why The Imp? Well don't most chat-bots seem to have an uncontrollable
+            urge to misunderstand you half the time and then deliberately say the wrong
+            thing simply because they can? The Imp's no different, but it is trying to be
+            better all the time. Who knows perhaps one day I'll change it's name to
+            The Angel.
+          p.text-left.
+            In the meantime an email has been sent to #[strong #{email}]
+            with a validation link.
+            You may continue to login after validating.
+          a(href='/#login') I'm validated, let me login »

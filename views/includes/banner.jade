@@ -1,0 +1,35 @@
+//- banner.jade
+nav.navbar.navbar-default.navbar-fixed-top.affix#siteNav(role='navigation')
+  div.container
+    div.navbar-header
+      button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navbar')
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand(href='/')
+        img(src='images/imp.png', height='30', style='display: inline-block')
+        | The Imp
+    div.collapse.navbar-collapse#navbar
+      ul.nav.navbar-nav.navbar-right
+        if locals.user
+          li #[a(href='logout') Logout]
+          if (currentUrl !== '/debug')
+            li #[a(href='debug') Debug]
+          li.dropdown
+            a.dropdown-toggle(href='#', data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false") More #[span.caret]
+            ul.dropdown-menu(aria-labelledby='about-us')
+              if (currentUrl !== '/password')
+                li #[a(href='password') Change password]
+              if (currentUrl !== '/privacy')
+                li #[a(href='privacy') Privacy]
+              li #[a(href='#') Version #{version}]
+        else
+          if (currentUrl !== '/register')
+            li #[a(href='/register') Register]
+          li.dropdown
+            a.dropdown-toggle(href='#', data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false") About #[span.caret]
+            ul.dropdown-menu(aria-labelledby='about-us')
+              if (currentUrl !== '/privacy')
+                li #[a(href='privacy') Privacy]
+              li #[a(href='#') Version #{version}]

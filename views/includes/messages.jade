@@ -1,0 +1,20 @@
+if error
+  each err in error
+    div.alert.alert-danger(role="alert")
+      p #{err}
+if success_msg
+  each msg in success_msg
+    div.alert.alert-success(role="alert")
+      p #{msg}
+if info_msg
+  each msg in info_msg
+    div.alert.alert-info(role="alert")
+      p #{msg}
+if warn_msg
+  each msg in warn_msg
+    div.alert.alert-warning(role="alert")
+      p #{msg}
+if error_msg
+  each msg in error_msg
+    div.alert.alert-danger(role="alert")
+      p #{msg}

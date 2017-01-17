@@ -1,13 +1,14 @@
-//-  layout.jade
-block vars
-doctype html
-html(lang='en')
-  head
-    block title
-      title mnsuk - #{title}
-    meta(charset='utf-8')
-    meta(http-equiv='X-UA-Compatible', content='IE=edge')
-    meta(name='viewport', content='width=device-width, initial-scale=1')
+//- index.jade
+extends ./layout.jade
 
-  body
-    h1 Hello World
+block vars
+  - var title = 'Talk to The Imp'
+block main-content
+    script.
+      var user = '!{user}'
+    header#mnsTest
+      div.header-content
+        div.header-content-inner
+          h1 Watson Conversation Demonstrations
+          h3 Brought to you by The Imp
+          a.btn.btn-primary.btn-lg#enter Enter

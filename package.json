@@ -14,13 +14,21 @@
     "node": "6.x"
   },
   "dependencies": {
+    "bcryptjs": "2.4.0",
     "body-parser": "1.15.2",
     "cfenv": "1.0.3",
     "client-sessions": "0.7.0",
+    "cloudant": "1.7.0",
     "config": "1.24.0",
+    "connect-flash": "0.1.1",
     "csurf": "1.9.0",
     "express": "4.13.x",
+    "express-messages": "1.0.1",
     "helmet": "3.1.0",
+    "jade": "1.11.0",
+    "nodemailer": "2.7.0",
+    "passport": "0.3.2",
+    "passport-local": "1.0.0",
     "request": "2.79.0",
     "winston": "2.3.0"
   },

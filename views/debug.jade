@@ -1,0 +1,20 @@
+//- debug.jade
+extends ./layout.jade
+
+block vars
+  - var title = 'Debug'
+block main-content
+  div.container.theme-showcase#mnsfade(role="main")
+    script.
+      document.getElementById('mnsfade').className += ' fade-out'
+      var local_data =!{JSON.stringify(user)}
+    div.page-header
+      include ./includes/messages.jade
+    div.row
+      div.col-sm-8.col-sm-offset-2.text-center
+        h3.text-center Debug
+        p    hello #{currentUrl}
+    footer.page-footer
+      div.small-print
+        div.container
+          p Copyright &copy; Example.com 2015

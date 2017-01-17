@@ -1,0 +1,27 @@
+//- chat.jade
+extends ./layout.jade
+
+block vars
+  - var title = 'Talk to The Imp'
+block main-content
+  div.container.theme-showcase#mnsfade(role="main")
+    script.
+      document.getElementById('mnsfade').className += ' fade-out'
+      var local_data =!{JSON.stringify(user)}
+      var connectTo = '#{impsvc}';
+    div.page-header
+      include ./includes/messages.jade
+    div.row
+      div.col-sm-3.text-right
+        div.gap-5
+        img.user-icon(src='images/imp.png')
+      div.col-sm-6
+        div.panel.panel-default(style="height: 84vh;overflow-y:scroll ")
+          div.panel-body.chat-column#chatPanel
+            div#scrollingChat
+            label.inputOutline(for='textInput')
+              input#textInput(placeholder="type something", type="text", onkeydown="ConversationPanel.inputKeyDown(event, this)")
+      div.col-sm-3
+        div.gap-10
+        span.glyphicon.glyphicon-user.user-icon
+        p.user-icon #{user.firstName}
