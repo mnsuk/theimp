@@ -24,4 +24,7 @@ block main-content
       div.col-sm-3
         div.gap-10
         span.glyphicon.glyphicon-user.user-icon
-        p.user-icon #{user.firstName}
+        if locals.user
+          p.user-icon #{user.firstName}
+        else
+         p.user-icon anonymous

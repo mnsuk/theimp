@@ -14,22 +14,24 @@ nav.navbar.navbar-default.navbar-fixed-top.affix#siteNav(role='navigation')
       ul.nav.navbar-nav.navbar-right
         if locals.user
           li #[a(href='logout') Logout]
-          if (currentUrl !== '/debug')
-            li #[a(href='debug') Debug]
+          if (path !== '/chat')
+            li #[a(href='chat') Chat]
           li.dropdown
             a.dropdown-toggle(href='#', data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false") More #[span.caret]
             ul.dropdown-menu(aria-labelledby='about-us')
-              if (currentUrl !== '/password')
+              if (path !== '/password')
                 li #[a(href='password') Change password]
-              if (currentUrl !== '/privacy')
+              if (path !== '/privacy')
                 li #[a(href='privacy') Privacy]
               li #[a(href='#') Version #{version}]
         else
-          if (currentUrl !== '/register')
+          if (path !== '/login')
+            li #[a(href='/login') Login]
+          if (path !== '/register')
             li #[a(href='/register') Register]
           li.dropdown
             a.dropdown-toggle(href='#', data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false") About #[span.caret]
             ul.dropdown-menu(aria-labelledby='about-us')
-              if (currentUrl !== '/privacy')
+              if (path !== '/privacy')
                 li #[a(href='privacy') Privacy]
               li #[a(href='#') Version #{version}]

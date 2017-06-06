@@ -3,6 +3,6 @@ applications:
   memory: 256M
   instances: 1
   domain: eu-gb.mybluemix.net
-  name: xxx
-  host: xxx
+  name: theimp
+  host: theimp
   disk_quota: 1024M

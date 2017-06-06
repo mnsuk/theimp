@@ -20,36 +20,38 @@ passport.use(new LocalStrategy({
         message: 'Database error',
       });
     }
-    if (!user)
+    if (!user) {
       setTimeout(function() { // timeouts discourage brute force attacks
         return done(null, false, {
           message: 'Unknown user',
         });
       }, 1500);
-    if (user.validated === false)
-      return done(null, false, {
-        message: 'Account has not been validated yet.',
-      });
-    User.comparePassword(password, user.password, function(err, isMatch) {
-      if (err) {
-        logger.warn('User.comparePassword error: ' + JSON.stringify(err));
+    } else {
+      if (user.validated === false)
         return done(null, false, {
-          message: 'Application error',
+          message: 'Account has not been validated yet.',
         });
-      }
-      if (isMatch) {
-        user.count = user.count + 1;
-        user.lastLogin = new Date();
-        User.update(user, function(err, doc) {});
-        return done(null, user);
-      } else {
-        setTimeout(function() {
+      User.comparePassword(password, user.password, function(err, isMatch) {
+        if (err) {
+          logger.warn('User.comparePassword error: ' + JSON.stringify(err));
           return done(null, false, {
-            message: 'Invalid passsword',
+            message: 'Application error',
           });
-        }, 1500);
-      }
-    });
+        }
+        if (isMatch) {
+          user.count = user.count + 1;
+          user.lastLogin = new Date();
+          User.update(user, function(err, doc) {});
+          return done(null, user);
+        } else {
+          setTimeout(function() {
+            return done(null, false, {
+              message: 'Invalid passsword',
+            });
+          }, 1500);
+        }
+      });
+    } // else !user
   });
 }));
 
@@ -58,7 +60,7 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(id, done) {
-  User.getById(id, function(err, user) {
+  User.getPublicById(id, function(err, user) {
     done(err, user);
   });
 });
@@ -124,7 +126,7 @@ router.post('/register', function(req, res) {
 
 router.get('/verify', function(req, res) {
   if (req.query.id) {
-    User.getById(req.query.id, function(err, user) {
+    User.getPublicById(req.query.id, function(err, user) {
       if (!err && typeof user._id !== 'undefined') {
         if (user.validationToken !== 'undefined' &&
           req.query.tk === user.validationToken) {
@@ -163,7 +165,7 @@ router.get('/login', function(req, res) {
 
 router.post('/login',
   passport.authenticate('local', {
-    successRedirect: '/debug',
+    successRedirect: '/chat',
     failureRedirect: '/login',
     failureFlash: true
   })
@@ -190,7 +192,7 @@ router.post('/password', requireAuth, function(req, res) {
           req.user.password = hash;
           User.update(req.user, function(err, id) {});
           req.flash('success_msg', 'Password updated');
-          res.redirect(config.get('home_page'));
+          res.redirect('/chat');
         } else {
           res.render('password.jade', {
             csrfToken: req.csrfToken(),

@@ -1,0 +1,24 @@
+doctype html
+html(lang='en')
+  head
+    block title
+      title Help
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+
+  body
+    div.row
+      p.text-left.
+        The Imp manages a number of conversational applications, each of these applications has
+        their own help available by typing <em>"help"</em>. Commands to The Imp itself (as opposed to the
+        individual conversational applications) all start with a '/' and are listed below.
+      p.text-left
+        ul
+          li /status - Show the currently selected conversational application.
+          li /list - Lists all the currently available conversational applications. The response is a list of buttons and any application can be selected via its button.
+          li /use <em>application</em> - Select a named conversational application.
+          li /reload - Refresh the list of conversational applications.
+          li /reset - Reset the current conversational application to its start.
+          li /forgetme - Reset the The Imp as though you've never been seen before.
+          li /help - This screen.

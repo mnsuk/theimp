@@ -2,10 +2,6 @@
 config/dev.json
 config/production.json
 
-# OS config view
-.DS_Store
-Desktop.ini
-
 # Thumbnails
 ._*
 Thumbs.db
@@ -17,8 +13,38 @@ Thumbs.db
 # Dev files
 *.[oa]
 *~
-node_modules
 .eslintrc.json
+.cfignore
 
 # Logs
+logs
 *.log
+npm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+
+# Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
+.grunt
+
+# node-waf configuration
+.lock-wscript
+
+# Compiled binary addons (http://nodejs.org/api/addons.html)
+build/Release
+
+# Dependency directories
+node_modules
+jspm_packages
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# big stuff
+*.mov
+*.mp4

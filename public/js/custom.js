@@ -5,15 +5,17 @@ $('#siteNav').affix({
   }
 })
 
+
 $(function() {
   $('.container#mnsfade').removeClass('fade-out');
-  // ConversationPanel.init();
+  ConversationPanel.init();
 });
+
 
 $("#enter").click(function() {
   $('#mnsTest').fadeOut(750, 'linear', () => {
     if (user)
-      document.location.href = 'debug';
+      document.location.href = 'chat';
     else
       document.location.href = 'login';
   });

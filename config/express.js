@@ -66,6 +66,7 @@ module.exports = function(app) {
     res.locals.error = req.flash('error'); // flash messages from passport
     res.locals.user = req.user || null;
     res.locals.version = version;
+    res.locals.path = req.path;
     next();
   });
 

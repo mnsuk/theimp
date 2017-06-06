@@ -53,6 +53,21 @@ module.exports.getById = function(id, cb) {
   });
 };
 
+module.exports.getPublicById = function(id, cb) {
+  db.get(id, function(err, doc) {
+    if (!err) {
+      delete doc.password;
+      cb(null, doc);
+    } else {
+      if (err.statusCode === 404)
+        cb(null, null); // user not found
+      else {
+        cb(err);
+      }
+    }
+  });
+};
+
 module.exports.update = function(user, cb) {
   db.insert(user, function(err, body) {
     if (err) {

@@ -1,24 +1,63 @@
 {
-  "version" : "1.2.0",
-  "LOG_LEVEL" : "debug",
-  "authenticationDB": "auth-dev",
-  "home_page": "/debug",
-  "mailer" : {
+"version" : "1.3.1",
+"notes" : {
+  "name": "theimp-dev1",
+  "webhook": "https://theimpdev1.localtunnel.me/messenger/theimp05122016",
+  "localtunnel": "lt -p 4000 -s theimpdev1"
+},
+"LOG_LEVEL" : "debug",
+"authenticationDB": "xxxx-dev",
+"botmasterDB": "xxxx-dev",
+"imp-svc": "ws://localhost:4000",
+"masterWorkspace": "xxxx-xxxx-xxxxx",
+"mailer" : {
     "url": "smtps://xxx%40gmail.com:xxxx@smtp.gmail.com",
     "admin": "anon"@anon.com"
   },
+  "messengerSettings" : {
+    "credentials": {
+      "fbAppSecret": "xxxxxxx",
+      "pageToken": "xxxxxxx",
+      "verifyToken": "xxxxxxx"
+    },
+    "webhookEndpoint": "/xxxxxxx/"
+  },
+  "socketioSettings": {
+    "id": "xxxxxxx"
+  }"football-data": {
+      "token": "xxxxxxx",
+      "url": "http://api.football-data.org"
+  },
+  "google-maps":{
+    "base": "https://maps.googleapis.com/maps/api/staticmap?key=xxxxxxx&center=",
+    "size": "300",
+    "zoom": "7",
+    "type": "hybrid"
+  },
   "VCAP_SERVICES": {
     "cloudantNoSQLDB" : [ {
-      "name" : "xxxx",
+      "name" : "ibmwatson-nlc-cloudant",
       "label" : "cloudantNoSQLDB",
       "plan" : "Shared",
       "credentials" : {
-        "username" : "uuuu-bluemix",
-        "password" : "pppp",
-        "host" : "uuuu-bluemix.cloudant.com",
+        "username" : "xxxxxxx",
+        "password" : "xxxxxxx",
+        "host" : "xxxxxxx-bluemix.cloudant.com",
         "port" : 443,
-        "url" : "https://uuuu-bluemix:pppp@uuuu-bluemix.cloudant.com"
+        "url" : "https://xxxxxxx-bluemix:xxxxxxx@5xxxxxxx-bluemix.cloudant.com"
       }
+    } ],
+    "conversation": [ {
+         "name": "Conversation",
+         "label": "Conversation",
+         "plan": "free",
+         "credentials": {
+           "url": "https://gateway.watsonplatform.net/conversation/api",
+           "password": "xxxxxxx",
+           "username": "xxxxxxx",
+           "version": "v1",
+           "version_date": "2016-09-20"
+         }
     } ]
   }
 }
